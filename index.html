@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="./js/style.css">
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="game-header">
+        <h1>Snake Game</h1>
+        <div id="score-container">
+          <span>Score: </span>
+          <span id="score">0</span>
+        </div>
+      </div>
+      
+      <div id="game-board-container">
+        <canvas id="game-board"></canvas>
+        
+        <div id="game-controls">
+          <button id="start-button">Start Game</button>
+          <button id="pause-button">Pause</button>
+        </div>
+      </div>
+      
+      <div id="game-over" class="hidden">
+        <div class="game-over-content">
+          <h2>Game Over</h2>
+          <p>Your score: <span id="final-score">0</span></p>
+          <button id="restart-button">Play Again</button>
+        </div>
+      </div>
+      
+      <div id="instructions">
+        <h3>How to Play</h3>
+        <p>Use arrow keys or swipe to control the snake.</p>
+        <p>Eat the apples to grow and earn points.</p>
+        <p>Avoid hitting the walls or yourself!</p>
+      </div>
+    </div>
+    
+    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

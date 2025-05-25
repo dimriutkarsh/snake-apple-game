@@ -1,0 +1,236 @@
+:root {
+  --primary-color: #34c759;
+  --secondary-color: #ff3b30;
+  --background-color: #f5f5f7;
+  --text-color: #1d1d1f;
+  --board-color: #ffffff;
+  --board-border: #d2d2d7;
+  --snake-color: #34c759;
+  --food-color: #ff3b30;
+  --button-color: #0071e3;
+  --button-text: #ffffff;
+  --button-hover: #0077ed;
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  
+  font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1d1d1f;
+    --text-color: #f5f5f7;
+    --board-color: #2c2c2e;
+    --board-border: #3a3a3c;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
+}
+
+#game-container {
+  max-width: 95%;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#game-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#score-container {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+#game-board-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+#game-board {
+  background-color: var(--board-color);
+  border: 2px solid var(--board-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+#game-board:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+#game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: var(--button-color);
+  color: var(--button-text);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.game-over-content {
+  background-color: var(--board-color);
+  padding: 30px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 90%;
+  width: 400px;
+  animation: scale-in 0.3s ease;
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.game-over-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.game-over-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+#restart-button {
+  background-color: var(--primary-color);
+  font-size: 1.1rem;
+  padding: 12px 24px;
+}
+
+#instructions {
+  text-align: center;
+  margin-top: 10px;
+  max-width: 500px;
+}
+
+#instructions h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+#instructions p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 600px) {
+  #game-container {
+    width: 95%;
+  }
+  
+  #game-header {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  #score-container {
+    font-size: 1.3rem;
+  }
+  
+  #game-board-container {
+    width: 90vw;
+    max-width: 400px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+  
+  #instructions {
+    font-size: 0.9rem;
+  }
+}
